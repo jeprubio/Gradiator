@@ -10,8 +10,8 @@ import kotlin.math.pow
 
 // Initial code from https://gist.github.com/EmmanuelGuther/6075494d1f0599fe76a1e6cd0c6e42e5
 
-const val TO_RADIANS_FACTOR = PI / 180f
-const val INITIAL_ROTATION = 90f
+private const val TO_RADIANS_FACTOR = PI / 180f
+private const val INITIAL_ROTATION = 90f
 
 fun Modifier.gradientBackground(
     vararg colorStops: Pair<Float, Color>,

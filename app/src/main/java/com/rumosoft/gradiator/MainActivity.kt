@@ -1,9 +1,7 @@
 package com.rumosoft.gradiator
 
 import android.graphics.Color.parseColor
-import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
-import android.view.View
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Box
@@ -46,38 +44,33 @@ fun SampleGradient() {
 }
 
 @Composable
-fun SampleTraditionalViewsGradientDrawable() {
+fun SampleTraditionalViewsLinearGradient() {
     AndroidView(factory = { context ->
-        return@AndroidView View(context)
-    }) {
-        val gradientDrawable = GradientDrawable(
-            GradientDrawable.Orientation.TOP_BOTTOM,
-            intArrayOf(
+        return@AndroidView GradientView(
+            context = context,
+            colors = intArrayOf(
                 parseColor("#FABADA"),
                 parseColor("#F2E377"),
                 parseColor("#FFEEAA"),
-            )
+            ),
+            stops = floatArrayOf(0f, 0.3f, 1.0f),
+            angleDegrees = 180f,
         )
-        gradientDrawable.cornerRadius = 0f
-
-        it.background = gradientDrawable
-    }
+    })
 }
-
 
 @Preview(showBackground = true)
 @Composable
-fun SampleGradientPreview() {
+private fun PreviewSampleGradientPreview() {
     GradiatorTheme {
         SampleGradient()
     }
 }
 
-
 @Preview(widthDp = 200, heightDp = 200, showBackground = true)
 @Composable
-fun SampleTraditionalViewsPreview() {
+private fun PreviewSampleTraditionalViewsLinearGradient() {
     GradiatorTheme {
-        SampleTraditionalViewsGradientDrawable()
+        SampleTraditionalViewsLinearGradient()
     }
 }
